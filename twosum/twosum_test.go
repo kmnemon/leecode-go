@@ -39,41 +39,9 @@ func TestTwoSum3(t *testing.T) {
 	}
 }
 
-func TestSliceToMap1(t *testing.T) {
-	nums := []int{6, 7, 8, 9}
+func TestTwoSum4(t *testing.T) {
+	hash := make(map[int]int)
 
-	hash := sliceToMap(nums)
+	fmt.Print(hash[5])
 
-	if len(*hash) != 4 {
-		t.Error("slice to map length err")
-	}
-
-	if reflect.DeepEqual((*hash)[6], 0) {
-		t.Error("slice to map mapping err")
-	}
-}
-
-func TestSliceToMap2(t *testing.T) {
-	nums := []int{6, 6, 8, 9}
-
-	hash := sliceToMap(nums)
-
-	if len(*hash) != 3 {
-		t.Error("slice to map length err")
-	}
-
-	if !reflect.DeepEqual((*hash)[6], []int{0,1}) {
-		t.Error("slice to map mapping err")
-	}
-}
-
-func TestSliceToMap3(t *testing.T) {
-	// hash := make(map[string]int)
-	ages := map[string]int{
-		"a": 1,
-		"a": 2,
-	}
-
-	fmt.Println(ages)
-	
 }
