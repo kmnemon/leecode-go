@@ -45,3 +45,13 @@ func TestTwoSum4(t *testing.T) {
 	fmt.Print(hash[5])
 
 }
+
+
+type AA struct {
+	a int
+	b string
+}
+
+func TestTTT(t *testing.T){
+	
+}

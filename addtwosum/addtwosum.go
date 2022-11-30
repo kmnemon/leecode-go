@@ -9,35 +9,49 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	return nil
 }
 
-func listToInt(l *ListNode) int {
+func listToReverseInt(l *ListNode) int {
 	ri := 0
+	factor := 1
 	for l != nil {
-		ri = ri*10 + l.Val
+		ri += factor * l.Val
+		factor *= 10
 		l = l.Next
 	}
 	return ri
 }
 
-func listToReverseInt(l *ListNode) int {
-	return 0
-}
+// func intToReverseList(i int) *ListNode {
+// 	// for i != 0 {
+// 	// 	pick := i % 10
+// 	// 	i /= 10
 
-func intToList(i int) *ListNode {
-	for i != 0 {
+// 	// }
+// 	// return nil
+// }
+
+func intToReverseList(list *ListNode, i int) *ListNode {
+	if i != 0 {
 		pick := i % 10
+		i /= 10
+		l := ListNode{
+			Val: pick,
+		}
 
+		list.Next = intToReverseList(&l, i)
+		return list
 	}
+
 	return nil
 }
 
-func reverseInt(i int) int {
-	ri := 0
-	for i != 0 {
-		pick := i % 10
-		i /= 10
+// func reverseInt(i int) int {
+// 	ri := 0
+// 	for i != 0 {
+// 		pick := i % 10
+// 		i /= 10
 
-		ri = ri*10 + pick
-	}
+// 		ri = ri*10 + pick
+// 	}
 
-	return ri
-}
+// 	return ri
+// }
