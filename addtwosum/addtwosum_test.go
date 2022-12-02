@@ -16,7 +16,7 @@ func TestAddTwoNumbers(t *testing.T) {
 	l1 := intToReverseList(nil, 342)
 	l2 := intToReverseList(nil, 465)
 	ll1 := addTwoNumbers(l1, l2)
-	fmt.Printf("%+v\n", ll1)
+	printList(ll1)
 
 	// l3 := intToReverseList(nil, 0)
 	// l4 := intToReverseList(nil, 0)
@@ -38,6 +38,13 @@ func TestAddTwoNumbers(t *testing.T) {
 	// ll5 := addTwoNumbers(l9, l10)
 	// fmt.Printf("%+v\n", ll5)
 
+}
+
+func printList(ll1 *ListNode) {
+	for ll1 != nil {
+		fmt.Print(ll1.Val)
+		ll1 = ll1.Next
+	}
 }
 
 func TestListToInt(t *testing.T) {
@@ -62,6 +69,5 @@ func TestIntToReverseList(t *testing.T) {
 
 func TestAddOne(t *testing.T) {
 	l := intToReverseList(nil, 999)
-	addOne(l)
 	fmt.Println(l)
 }
