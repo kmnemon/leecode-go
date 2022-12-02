@@ -13,8 +13,8 @@ import (
 // }
 
 func TestAddTwoNumbers(t *testing.T) {
-	l1 := intToReverseList(nil, 342)
-	l2 := intToReverseList(nil, 465)
+	l1 := intToReverseList(nil, 199)
+	l2 := intToReverseList(nil, 1)
 	ll1 := addTwoNumbers(l1, l2)
 	printList(ll1)
 
@@ -47,27 +47,49 @@ func printList(ll1 *ListNode) {
 	}
 }
 
-func TestListToInt(t *testing.T) {
-	l3 := ListNode{3, nil}
-	l2 := ListNode{2, &l3}
-	l1 := ListNode{1, &l2}
+// func TestListToInt(t *testing.T) {
+// 	l3 := ListNode{3, nil}
+// 	l2 := ListNode{2, &l3}
+// 	l1 := ListNode{1, &l2}
 
-	if listToReverseInt(&l1) != 321 {
-		t.Error("list to int wrong")
+// 	if listToReverseInt(&l1) != 321 {
+// 		t.Error("list to int wrong")
+// 	}
+// }
+
+// func TestIntToReverseList(t *testing.T) {
+// 	var i uint64 = 17
+
+// 	l := intToReverseList(nil, i)
+// 	if l.Val != 7 || l.Next.Val != 1 || l.Next.Next != nil {
+// 		t.Error("int to reverse list wrong")
+// 	}
+
+// }
+
+// func TestAddOne(t *testing.T) {
+// 	l := intToReverseList(nil, 999)
+// 	fmt.Println(l)
+// }
+
+func intToReverseList(list *ListNode, i uint64) *ListNode {
+	if list == nil {
+		var ol ListNode
+		list = &ol
 	}
-}
 
-func TestIntToReverseList(t *testing.T) {
-	var i uint64 = 17
+	if i != 0 {
+		pick := int(i % 10)
+		i /= 10
+		l := ListNode{
+			Val: pick,
+		}
 
-	l := intToReverseList(nil, i)
-	if l.Val != 7 || l.Next.Val != 1 || l.Next.Next != nil {
-		t.Error("int to reverse list wrong")
+		list.Next = &l
+
+		intToReverseList(&l, i)
+		return list.Next
 	}
 
-}
-
-func TestAddOne(t *testing.T) {
-	l := intToReverseList(nil, 999)
-	fmt.Println(l)
+	return &ListNode{Val: 0}
 }
